@@ -1,0 +1,45 @@
+.button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button-primary {
+    background-color: var(--color-primario);
+    color: #fff;
+}
+
+.button-primary:hover {
+    background-color: darken(var(--color-primario), 10%);
+    transform: translateY(-2px);
+}
+
+.button-secondary {
+    background-color: var(--color-secundario);
+    color: #fff;
+}
+
+.button-secondary:hover {
+    background-color: darken(var(--color-secundario), 10%);
+    transform: translateY(-2px);
+}
+
+.button-large {
+    padding: 15px 30px;
+    font-size: 1.2em;
+}
+
+.button-small {
+    padding: 5px 10px;
+    font-size: 0.8em;
+}
+
+@media (max-width: 768px) {
+    .button {
+        width: 100%;
+        font-size: 0.9em;
+    }
+}

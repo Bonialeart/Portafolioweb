@@ -1,0 +1,37 @@
+/* This file contains reusable CSS mixins to simplify the application of common styles throughout the project. */
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin responsive-font($size) {
+    font-size: $size;
+
+    @media (max-width: 768px) {
+        font-size: ($size * 0.9);
+    }
+
+    @media (max-width: 480px) {
+        font-size: ($size * 0.8);
+    }
+}
+
+@mixin transition($property, $duration, $timing-function: ease) {
+    transition: $property $duration $timing-function;
+}
+
+@mixin clearfix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin grid($columns, $gap: 1rem) {
+    display: grid;
+    grid-template-columns: repeat($columns, 1fr);
+    gap: $gap;
+}

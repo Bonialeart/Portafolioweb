@@ -1,0 +1,30 @@
+/* Footer Styles */
+.footer {
+    background-color: var(--color-secundario);
+    color: var(--color-texto);
+    padding: 20px;
+    text-align: center;
+}
+
+.footer a {
+    color: var(--color-primario);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: lighten(var(--color-primario), 10%);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .footer {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        font-size: 0.9em;
+    }
+}

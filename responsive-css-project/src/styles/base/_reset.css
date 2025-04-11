@@ -1,0 +1,41 @@
+/* This file contains CSS rules to reset default browser styles, ensuring a consistent baseline across different browsers. */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    line-height: 1.15; /* Improve readability */
+    -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape */
+}
+
+body {
+    font-family: sans-serif; /* Use a default sans-serif font */
+    line-height: 1.5; /* Improve readability */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal; /* Reset heading font weight */
+}
+
+ul {
+    list-style: none; /* Remove default list styles */
+}
+
+img {
+    max-width: 100%; /* Ensure images are responsive */
+    height: auto; /* Maintain aspect ratio */
+}
+
+a {
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit color from parent */
+}
+
+button {
+    border: none; /* Remove default button border */
+    background: none; /* Remove default button background */
+    cursor: pointer; /* Change cursor to pointer */
+}

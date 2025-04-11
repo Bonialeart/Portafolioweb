@@ -1,0 +1,13 @@
+:root {
+    --color-primary: #4a90e2;
+    --color-secondary: #0a0f1c;
+    --color-text: #e2e8f0;
+    --spacing-small: 8px;
+    --spacing-medium: 16px;
+    --spacing-large: 32px;
+    --font-family-base: 'Inter', sans-serif;
+    --font-family-heading: 'Londrina Sketch', cursive;
+    --font-size-base: 16px;
+    --font-size-large: 24px;
+    --line-height-base: 1.5;
+}

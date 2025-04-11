@@ -1,0 +1,14 @@
+{
+  "name": "responsive-css-project",
+  "version": "1.0.0",
+  "description": "A responsive CSS project that adapts well to any screen size while maintaining the original positioning of elements.",
+  "main": "src/index.html",
+  "scripts": {
+    "build": "echo 'Build script not defined'",
+    "start": "echo 'Start script not defined'"
+  },
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {}
+}

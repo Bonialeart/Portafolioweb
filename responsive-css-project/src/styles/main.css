@@ -1,0 +1,19 @@
+/* Importing base styles */
+@import './base/_reset.css';
+@import './base/_typography.css';
+@import './base/_variables.css';
+
+/* Importing component styles */
+@import './components/_buttons.css';
+@import './components/_cards.css';
+@import './components/_navigation.css';
+
+/* Importing layout styles */
+@import './layouts/_footer.css';
+@import './layouts/_grid.css';
+@import './layouts/_header.css';
+
+/* Importing utility styles */
+@import './utils/_breakpoints.css';
+@import './utils/_mixins.css';
+@import './utils/_helpers.css';
