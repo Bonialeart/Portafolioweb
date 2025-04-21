@@ -31,6 +31,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"></script>
     <link rel="apple-touch-icon" sizes="57x57" href="images/logo.ico/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="images/logo.ico/apple-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="images/logo.ico/apple-icon-72x72.png">
@@ -514,6 +515,18 @@
         });
     });
 
+    // Sonido de click para los enlaces del nav-menu usando Howler.js
+    const clickSound = new Howl({
+        src: ['sounds/click.mp3'],
+        volume: 0.5
+    });
+
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            clickSound.play();
+        });
+    });
+
     // Manejo del carrusel para cada proyecto en las miniaturas
     const projectCards = document.querySelectorAll('.project-card');
 
@@ -714,6 +727,8 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('fade-in');
+                } else {
+                    entry.target.classList.remove('fade-in');
                 }
             });
         }, options);
@@ -811,6 +826,68 @@ window.addEventListener('load', () => {
     sections[0].classList.add('visible'); // Asegura que la primera sección sea visible
 });
 window.addEventListener('resize', checkVisibility);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('.section');
+
+    const observerOptions = {
+        root: null, // relative to the viewport
+        rootMargin: '0px',
+        threshold: 0.1 // Trigger when 10% of the section is visible
+    };
+
+    const observerCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            } else {
+                entry.target.classList.remove('visible');
+            }
+        });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('input'); // Asegúrate de usar el id correcto
+    const body = document.body;
+
+    // Función para aplicar el tema
+    function applyTheme(theme) {
+        if (theme === 'light') {
+            body.classList.add('light-theme');
+            themeToggle.checked = true;
+        } else {
+            body.classList.remove('light-theme');
+            themeToggle.checked = false;
+        }
+    }
+
+    // Detectar preferencia guardada o del sistema
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const savedTheme = localStorage.getItem('theme');
+    const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+    applyTheme(initialTheme);
+
+    // Cambiar tema al usar el switch
+    themeToggle.addEventListener('change', () => {
+        const newTheme = themeToggle.checked ? 'light' : 'dark';
+        applyTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+    });
+
+    // Cambiar tema si cambia la preferencia del sistema (solo si no hay preferencia guardada)
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        if (!localStorage.getItem('theme')) {
+            applyTheme(e.matches ? 'dark' : 'light');
+        }
+    });
+});
 </script>
 </body>
 </html>
