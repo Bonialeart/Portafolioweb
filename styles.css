@@ -329,6 +329,7 @@ body {
     background: rgba(16, 24, 48, 0.9);
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    position: relative;
 }
 
 .about-photo {
@@ -492,6 +493,56 @@ body {
     }
 }
 
+/* About Header */
+.about-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.about-header h2 {
+    margin: 0;
+}
+
+.cv-download-btn {
+    background: #4a90e2;
+    color: #fff;
+    padding: 10px 28px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    cursor: pointer;
+}
+
+.cv-download-btn:hover {
+    background: #357ab8;
+}
+.cv-download-btn-inline {
+    display: inline-block;
+    margin-left: 18px;
+    vertical-align: middle;
+    background: #4a90e2;
+    color: #fff;
+    padding: 4px 18px;
+    border-radius: 8px;
+    font-size: 0.6em;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: background 0.2s;
+    position: relative;
+    top: -4px;
+}
+
+.cv-download-btn-inline:hover {
+    background: #357ab8;
+}
+
 /* Galería de Arte (Proyectos con selectores) */
 .projects {
     background: rgba(16, 24, 48, 0.8);
@@ -539,50 +590,26 @@ body {
 .project-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+    gap: 5px; /* Reduced gap */
     max-width: 900px;
     margin: 0 auto;
     justify-items: center;
 }
 
 .project-card {
-    width: 100%;
-    max-width: 300px;
-    aspect-ratio: 1 / 1;         /* Siempre cuadrado */
-    height: auto;
-    background: none;
-    border: 3px solid #4a90e2;
-    border-radius: 10px;
-    overflow: hidden;
     position: relative;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    display: block;
-    display: flex;               /* Para centrar el contenido */
-    align-items: stretch;
-    justify-content: stretch;
-    padding: 0;
-
+    overflow: hidden; /* Ensures image corners are not rounded if image is larger */
+    border-radius: 0; /* Explicitly remove border-radius */
+    width: 100%; /* Ensure card takes full width of grid cell */
+    aspect-ratio: 1 / 1; /* Makes the card a square, common in Instagram-like grids */
 }
 
-.project-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 15px 35px rgba(74, 144, 226, 0.4);
-}
-
-.carousel-img {
+.project-card .carousel-img {
     width: 100%;
     height: 100%;
-    aspect-ratio: 1 / 1;         /* Imagen cuadrada */
-    object-fit: cover;
-    border-radius: 0;            /* Sin bordes redondeados extra */
-    transition: filter 0.3s ease;
+    object-fit: cover; /* Ensures the image covers the card, cropping if necessary */
     display: block;
-}
-
-.project-card:hover .carousel-img {
-    filter: brightness(0.7) blur(1px); /* Suaviza la imagen al hacer hover */
+    border-radius: 0; /* Ensure image itself has no rounded corners */
 }
 
 .project-card .overlay {
@@ -600,6 +627,7 @@ body {
     transition: opacity 0.3s ease;
     padding: 15px;
     text-align: center;
+    border-radius: 0; /* Ensure overlay also has no rounded corners if it was styled with them */
 }
 
 .project-card:hover .overlay {
@@ -749,23 +777,63 @@ body {
 }
 
 .modal-carousel {
+    position: relative; /* For absolute positioning of arrows */
     width: 100%;
-    max-height: 700px;
-    overflow: hidden;
-    border-radius: 10px;
+    height: 100%; /* Ensure it fills the space in modal-image-section */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#modal-img {
+.media-container {
     width: 100%;
-    height: auto;
-    max-height: 700px;
-    object-fit: cover;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Prevents media from overflowing if not perfectly sized */
 }
 
-#modal-img:hover {
-    transform: scale(1.05);
+#modal-img,
+#modal-video {
+    max-width: 100%;
+    max-height: 100%; /* Constrained by media-container */
+    object-fit: contain; /* Shows the whole image/video without cropping */
+    border-radius: 10px; /* Optional: if you want rounded corners on media */
+    display: block; /* Default display for img, ensure video behaves similarly */
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    font-size: 28px; /* Slightly larger arrow */
+    cursor: pointer;
+    z-index: 100; /* Ensure arrows are above the media */
+    border-radius: 50%; /* Circular buttons */
+    width: 44px; /* Adjusted size */
+    height: 44px; /* Adjusted size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.carousel-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+    transform: translateY(-50%) scale(1.1); /* Slight zoom on hover */
+}
+
+.carousel-arrow.prev {
+    left: 15px; /* Position from the left edge */
+}
+
+.carousel-arrow.next {
+    right: 15px; /* Position from the right edge */
 }
 
 .modal-bento-grid {
@@ -1294,10 +1362,16 @@ body {
 }
 
 .sticker-top-left {
-    opacity: 1;
-    top: 98px;
-    left: -10px;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: clamp(100px, 15%, 180px); /* Tamaño responsive entre 80px y 150px */
+    height: auto;
     transform: rotate(2deg);
+    z-index: 5;
+    opacity: 0.9;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
 }
 
 .sticker-bottom-right {
@@ -1328,6 +1402,58 @@ body {
     bottom: 20px;
     right: 20px;
     transform: rotate(10deg);
+}
+/* 4K and Ultra-wide screens */
+@media screen and (min-width: 2560px) {
+    .sticker-top-left {
+        width: clamp(150px, 20%, 250px);
+    }
+}
+
+/* Regular desktop and high-res laptops */
+@media screen and (min-width: 1920px) and (max-width: 2559px) {
+    .sticker-top-left {
+        width: clamp(120px, 22%, 220px);
+    }
+}
+
+/* Tablets and smaller screens */
+@media screen and (max-width: 1365px) {
+    .sticker-top-left {
+        width: clamp(80px, 18%, 150px);
+    }
+}
+
+/* High DPI screens */
+@media screen and (-webkit-min-device-pixel-ratio: 2), 
+       screen and (min-resolution: 192dpi) {
+    .sticker-top-left {
+        filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4));
+    }
+}
+
+@media (min-width: 1200px) {
+    .sticker-top-left {
+        top: -0%; /* Mantiene la misma proporción en pantallas grandes */
+        left: -2%;
+        width: clamp(140px, 40%, 190px);
+    }
+}
+/* Media queries para ajustar el sticker en diferentes tamaños de pantalla */
+@media (max-width: 768px) {
+    .sticker-top-left {
+        top: -10px;
+        left: -15px;
+        width: clamp(50px, 12%, 100px);
+    }
+}
+
+@media (max-width: 480px) {
+    .sticker-top-left {
+        top: -30px;
+        left: -10px;
+        width: clamp(40px, 10%, 80px);
+    }
 }
 
 /* From Uiverse.io by elisapi */
@@ -3180,3 +3306,228 @@ body.light-theme .socialSvg path {
   }
   
 @import "tailwindcss";
+
+/* New styles for color-box */
+.color-box {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    position: relative;
+}
+
+.color-box:hover {
+    transform: scale(1.1);
+}
+
+.color-box:hover::after {
+    content: attr(title);
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.testimonials {
+    padding: 6rem 2rem;
+    background: var(--bg-secondary);
+    min-height: 600px;
+}
+
+.testimonials-carousel {
+    max-width: 900px;
+    margin: 3rem auto;
+    position: relative;
+    height: 400px; /* Altura fija para evitar saltos */
+}
+
+.testimonial-card {
+    position: absolute;
+    width: 100%;
+    background: var(--bg-primary);
+    border-radius: 15px;
+    padding: 2.5rem;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    transition: all 0.5s ease;
+    opacity: 0;
+    transform: translateX(100%);
+    visibility: hidden;
+}
+
+.testimonial-card.active {
+    opacity: 1;
+    transform: translateX(0);
+    visibility: visible;
+}
+
+.testimonial-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 1rem;
+}
+
+.client-img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 3px solid var(--accent-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.client-info h4 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.client-role {
+    font-size: 1rem;
+    color: var(--accent-color);
+    font-weight: 500;
+}
+
+blockquote {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin: 2rem 0;
+    padding: 1rem 2rem;
+    border-left: 4px solid var(--accent-color);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 0 10px 10px 0;
+}
+
+.testimonial-controls {
+    position: relative;
+    bottom: -2rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.testimonial-controls button {
+    background: var(--accent-color);
+    color: var(--bg-primary);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.testimonial-controls button:hover {
+    transform: scale(1.1);
+}
+
+.testimonial-dots {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: var(--accent-color);
+    transform: scale(1.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .testimonial-card {
+        padding: 1.5rem;
+    }
+
+    .testimonial-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    blockquote {
+        font-size: 1rem;
+        padding: 1rem;
+    }
+
+    .client-img {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+/* Reglas base responsive */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenedor principal flexible */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Sistema de grid responsive */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+}
+
+/* Columnas flexibles */
+.col {
+  flex: 1;
+  padding: 0 15px;
+  min-width: 250px; /* Ancho mínimo antes de wrap */
+}
+
+/* Imágenes responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Media queries para diferentes breakpoints */
+@media (max-width: 768px) {
+  .col {
+    flex: 100%;
+  }
+}
+
+/* Tipografía responsive */
+html {
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* Unidades relativas */
+.section {
+  padding: 2rem;
+  margin: 1em;
+}

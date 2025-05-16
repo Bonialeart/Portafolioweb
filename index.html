@@ -163,7 +163,10 @@
                 <img src="fotos/foto.jpg" alt="Alejandro Bonilla - Bonialeart" class="about-img">
             </div>
             <div class="about-content">
-                <h2>Sobre Mí</h2>
+                <h2>
+  Sobre Mí
+  <a href="CV.pdf" class="cv-download-btn-inline" download>CV</a>
+</h2>
                 <p>
                     Mi nombre es Alejandro Bonilla, un dedicado artista digital freelance, ilustrador y amante de la fotografia con más de 4 años de experiencia profesional. Mi pasión radica en crear narrativas visuales atractivas y mundos únicos.
                 </p>
@@ -200,7 +203,7 @@
             </div>
         </div>
     </section>
-<!-- ...existing code... -->
+
     <!-- Galería de Arte (Proyectos con selectores) -->
     <section class="section projects" id="projects">
         <div class="section-header gallery-header">
@@ -253,21 +256,21 @@
             </article>
             <article class="project-card" 
                      data-media='[
-                       {"type": "image", "src": "concepto3-1.jpg"}, 
-                       {"type": "image", "src": "concepto3-2.jpg"}, 
-                       {"type": "image", "src": "concepto3-3.jpg"},
-                       {"type": "video", "src": "/videos/proceso-bosque.mp4"}
+                       {"type": "image", "src": "images/Maquina 3d/Maquina.png"}, 
+                       {"type": "image", "src": "images/Maquina 3d/Maquina 2.png"}, 
+                       {"type": "image", "src": "images/Maquina 3d/Maquina 3.png"},
+                       {"type": "video", "src": "/videos/Maquina.mp4", "thumbnail": "/images/Maquina 3d/Maquina.png"}
                      ]' 
-                     data-title="Bosque Encantado" 
-                     data-desc="Concepto de un bosque mágico para un proyecto de cine, con luces y sombras pintadas digitalmente." 
+                     data-title="Vending Machine Serenity" 
+                     data-desc="Esta pieza es un render 3D con una animación sutil, creado en Blender, que retrata una máquina expendedora solitaria. Aunque es un modelo tridimensional, se ha aplicado un estilo visual de cel-shading (o toon shading) para emular la estética de un dibujo animado 2D, con contornos definidos y una paleta de colores suaves. La máquina está ubicada en un entorno natural inesperado —sobre un pequeño parche de adoquines rodeado de hierba y flores—, creando un contraste intrigante. La animación consiste en una línea blanca y etérea que serpentea por la escena, interactuando de forma abstracta con la máquina y añadiendo un toque de misterio o magia al ambiente tranquilo y ligeramente melancólico." 
                      data-category="conceptart" 
                      data-program="Blender" 
-                     data-date="Julio 2022">
-                <img src="concepto3-1.jpg" alt="Bosque Encantado" class="carousel-img">
+                     data-date="Marzo 2025">
+                <img src="images/Maquina 3d/Maquina.png" alt="Vending Machine Serenity" class="carousel-img">
                 <div class="overlay">
-                    <h3>Bosque Encantado</h3>
+                    <h3>Vending Machine Serenity</h3>
                     <p class="program">Hecho en: Blender</p>
-                    <p class="date">Fecha: Julio 2022</p>
+                    <p class="date">Fecha: Marzo 2025</p>
                 </div>
             </article>
             <article class="project-card" 
@@ -298,13 +301,15 @@
             <div class="modal-inner">
                 <div class="modal-image-section">
                     <div class="modal-carousel">
+                        <button class="carousel-arrow prev" aria-label="Previous image">&#10094;</button>
                         <div class="media-container">
-                            <img id="modal-img" src="" alt="Obra de Concept Art" style="display: none;">
-                            <video id="modal-video" controls style="display: none;">
-                                <source src="" type="video/mp4">
+                            <img id="modal-img" src="images/robot.jpg" alt="Aurora - Imagen 1" style="display: block;">
+                            <video id="modal-video" controls loop style="display: block;" poster="/images/Maquina 3d/Maquina.png">
+                                <source src="/videos/Maquina.mp4" type="video/mp4">
                                 Tu navegador no soporta el elemento de video.
                             </video>
                         </div>
+                        <button class="carousel-arrow next" aria-label="Next image">&#10095;</button>
                     </div>
                 </div>
                 <div class="modal-bento-grid">
@@ -385,6 +390,86 @@
                 </div>
             </div>
     </section>
+    <!-- Añade esto después de la sección de habilidades -->
+<section class="testimonials section" id="testimonials">
+    <div class="section-header">
+        <img src="diseño/Recurso 4@4x.png" alt="Rayón decorativo" class="scribble">
+        <h2>Testimonios</h2>
+    </div>
+    
+    <div class="testimonials-carousel">
+        <!-- Testimonio 1 - Cliente de YouTube -->
+        <div class="testimonial-card">
+            <div class="testimonial-header">
+                <img src="images/Mininija.jpg" alt="MiniNinja" class="client-img">
+                <div class="client-info">
+                    <h4>MiniNinja</h4>
+                    <span class="client-role">YouTuber</span>
+                    <div class="rating">★★★★★</div>
+                </div>
+            </div>
+            <blockquote>
+                "Las ilustraciones de Alejandro transformaron completamente la identidad visual de mi canal. Su capacidad para capturar la esencia de mi contenido en sus diseños es excepcional. Los thumbnails que creó aumentaron mi CTR en un 40%. ¡Un verdadero profesional!"
+            </blockquote>
+            <div class="project-type">Diseño de Thumbnails y Assets para YouTube</div>
+        </div>
+
+        <!-- Testimonio 2 - Cliente de Cómic -->
+        <div class="testimonial-card">
+            <div class="testimonial-header">
+                <img src="images/unnamed.jpg" alt="Lygno Productions" class="client-img">
+                <div class="client-info">
+                    <h4>Lygno Productions</h4>
+                    <span class="client-role">Editorial de Cómics Independiente</span>
+                    <div class="rating">★★★★★</div>
+                </div>
+            </div>
+            <blockquote>
+                "El diseño de personajes de Alejandro superó todas nuestras expectativas. Su atención al detalle y capacidad para traducir conceptos abstractos en diseños vibrantes y memorables es impresionante. Nuestros lectores aman los personajes que creó."
+            </blockquote>
+            <div class="project-type">Diseño de Personajes para Cómic</div>
+        </div>
+
+        <!-- Testimonio 3 - Cliente de Nexury -->
+        <div class="testimonial-card">
+            <div class="testimonial-header">
+                <img src="images/channels4_profile.jpg" alt="Nexury" class="client-img">
+                <div class="client-info">
+                    <h4>Nexury</h4>
+                    <span class="client-role">Empresa de Contenido Crypto</span>
+                    <div class="rating">★★★★½</div>
+                </div>
+            </div>
+            <blockquote>
+                "La creatividad de Alejandro fue fundamental para establecer nuestra identidad de marca. Su trabajo en nuestro contenido visual ayudó a aumentar nuestro engagement en más de un 150%. Su capacidad para mantener la consistencia visual mientras innova es notable."
+            </blockquote>
+            <div class="project-type">Identidad Corporativa y Contenido Visual</div>
+        </div>
+
+        <!-- Testimonio 4 - Cliente de Videojuegos -->
+        <div class="testimonial-card">
+            <div class="testimonial-header">
+                <img src="images/16 may 2025, 10_11_11 a.m..png" alt="IndieGame Studio" class="client-img">
+                <div class="client-info">
+                    <h4>Pixel Dreams Studio</h4>
+                    <span class="client-role">Estudio de Videojuegos Indie</span>
+                    <div class="rating">★★★★★</div>
+                </div>
+            </div>
+            <blockquote>
+                "Los concept arts de paisajes que Alejandro creó para nuestro juego son impresionantes. Capturó perfectamente la atmósfera que buscábamos, combinando elementos fantásticos con un estilo único. Su trabajo nos ayudó a asegurar financiamiento adicional para el proyecto."
+            </blockquote>
+            <div class="project-type">Concept Art de Paisajes</div>
+        </div>
+    </div>
+
+    <!-- Controles del carrusel -->
+    <div class="testimonial-controls">
+        <button class="prev-testimonial" aria-label="Testimonio anterior">❮</button>
+        <div class="testimonial-dots"></div>
+        <button class="next-testimonial" aria-label="Siguiente testimonio">❯</button>
+    </div>
+</section>
 
     <!-- Contacto -->
     <section class="contact section" id="contact">
@@ -427,6 +512,10 @@
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 <script>
+    // Add these variables at a scope accessible by event handlers and updateModalMedia
+    let currentProjectMediaForModal = [];
+    let currentMediaIndexInModal = 0;
+
     // Loader: Transformar al cargar la página con un retraso adicional
     window.addEventListener('load', function() {
         const loader = document.querySelector('.loader');
@@ -554,65 +643,117 @@
     const colorThief = new ColorThief();
 
     // Función para actualizar la imagen, video, descripción y paleta de colores en el modal
-    function updateModalMedia() {
+    function updateModalMedia(mediaArray, index) {
         const modalImg = document.getElementById('modal-img');
         const modalVideo = document.getElementById('modal-video');
-        const modalDesc = document.getElementById('modal-desc');
+        const videoSource = modalVideo.querySelector('source');
         const modalColors = document.getElementById('modal-colors');
-        const currentMedia = currentProjectMedia[currentMediaIndex];
 
-        // Ocultar ambos elementos primero
-        modalImg.style.display = 'none';
-        modalVideo.style.display = 'none';
+        // Store the current state for arrow navigation
+        currentProjectMediaForModal = mediaArray;
+        currentMediaIndexInModal = index;
 
-        // Actualizar descripción
-        modalDesc.textContent = currentProjectDesc || '';
+        const activeMedia = mediaArray[index];
 
-        if (currentMedia.type === 'image') {
-            modalImg.src = currentMedia.src;
-            modalImg.alt = `${document.getElementById('modal-title').textContent} - Imagen ${currentMediaIndex + 1}`;
+        if (activeMedia.type === 'image') {
+            modalImg.src = activeMedia.src;
+            modalImg.alt = activeMedia.alt || `${document.getElementById('modal-title').textContent} - Media ${index + 1}`;
             modalImg.style.display = 'block';
             modalVideo.style.display = 'none';
+            modalVideo.pause(); // Pause video if it was playing
 
-            // Generar paleta de colores para imágenes
+            // Extraer y mostrar paleta de colores usando Color Thief
             modalImg.onload = () => {
                 try {
                     const palette = colorThief.getPalette(modalImg, 5);
                     modalColors.innerHTML = palette.map(color => {
                         const rgbColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
-                        return `<div style="background-color: ${rgbColor};"></div>`;
-                    }).join('');
-                } catch (error) {
-                    console.log('No se pudo extraer la paleta de colores:', error);
-                    modalColors.innerHTML = ''; // Mostrar vacío si hay error
-                }
-            };
-            if (modalImg.complete) {
-                try {
-                    const palette = colorThief.getPalette(modalImg, 5);
-                    modalColors.innerHTML = palette.map(color => {
-                        const rgbColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
-                        return `<div style="background-color: ${rgbColor};"></div>`;
+                        const hexColor = rgbToHex(color[0], color[1], color[2]);
+                        return `<div class="color-box" style="background-color: ${rgbColor};" title="${hexColor}"></div>`;
                     }).join('');
                 } catch (error) {
                     console.log('No se pudo extraer la paleta de colores:', error);
                     modalColors.innerHTML = '';
                 }
+            };
+            // Si la imagen ya está cargada (por caché), forzar extracción
+            if (modalImg.complete) {
+                try {
+                    const palette = colorThief.getPalette(modalImg, 5);
+                    modalColors.innerHTML = palette.map(color => {
+                        const rgbColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
+                        const hexColor = rgbToHex(color[0], color[1], color[2]);
+                        return `<div class="color-box" style="background-color: ${rgbColor};" title="${hexColor}"></div>`;
+                    }).join('');
+                } catch (error) {
+                    modalColors.innerHTML = '';
+                }
             }
-        } else if (currentMedia.type === 'video') {
-            modalVideo.src = currentMedia.src;
-            modalVideo.alt = `${document.getElementById('modal-title').textContent} - Video ${currentMediaIndex + 1}`;
+        } else if (activeMedia.type === 'video') {
+            videoSource.src = activeMedia.src;
+            modalVideo.poster = activeMedia.thumbnail || '';
+            modalVideo.load();
             modalVideo.style.display = 'block';
             modalImg.style.display = 'none';
-
             // Limpiar paleta de colores para videos
             modalColors.innerHTML = '';
         }
 
-        // Actualizar miniaturas
-        document.querySelectorAll('.gallery-container .media-item').forEach((item, index) => {
-            item.classList.toggle('active', index === currentMediaIndex);
+        // Update active state for thumbnails in the bento gallery
+        const galleryThumbnails = document.querySelectorAll('#modal-gallery .media-item');
+        galleryThumbnails.forEach((item, idx) => {
+            item.classList.toggle('active', idx === index);
         });
+    }
+
+    // Agregar esta función de utilidad para convertir RGB a HEX
+    function rgbToHex(r, g, b) {
+        return '#' + [r, g, b].map(x => {
+            const hex = x.toString(16);
+            return hex.length === 1 ? '0' + hex : hex;
+        }).join('');
+    }
+
+    function openModal(projectCard) {
+        const modal = document.getElementById('project-modal');
+        const projectTitle = projectCard.dataset.title;
+        const projectDesc = projectCard.dataset.desc;
+        const projectProgram = projectCard.dataset.program;
+        const projectDate = projectCard.dataset.date;
+        const mediaData = JSON.parse(projectCard.dataset.media);
+
+        document.getElementById('modal-title').textContent = projectTitle;
+        document.getElementById('modal-description').textContent = projectDesc;
+        document.getElementById('modal-program').textContent = `Hecho en: ${projectProgram}`;
+        document.getElementById('modal-date').textContent = `Fecha: ${projectDate}`;
+
+        // Initialize and display the first media item
+        // This call will also set currentProjectMediaForModal and currentMediaIndexInModal
+        updateModalMedia(mediaData, 0);
+
+        const modalGallery = document.getElementById('modal-gallery');
+        modalGallery.innerHTML = ''; // Clear previous gallery items
+        mediaData.forEach((media, index) => {
+            const img = document.createElement('img');
+            // Use thumbnail for video, otherwise the image source
+            img.src = media.type === 'video' ? (media.thumbnail || 'placeholder-video-thumb.jpg') : media.src;
+            img.alt = `${projectTitle} - Miniatura ${index + 1}`;
+            img.classList.add('media-item');
+            if (index === 0) {
+                img.classList.add('active');
+            }
+            img.dataset.index = index;
+            img.addEventListener('click', () => {
+                updateModalMedia(mediaData, index);
+            });
+            modalGallery.appendChild(img);
+        });
+
+        modal.style.display = 'flex';
+        setTimeout(() => { // Timeout to allow display property to take effect before transition
+            modal.classList.add('visible');
+        }, 10);
+        document.body.classList.add('modal-open'); // Optional: to prevent body scroll
     }
 
     // Manejo del modal para proyectos con diseño Bento
@@ -663,7 +804,7 @@
                     });
                 });
 
-                updateModalMedia();
+                updateModalMedia(currentProjectMedia, 0);
                 modal.style.display = 'flex';
             }
         });
@@ -682,6 +823,69 @@
             currentProjectMedia = [];
             currentProjectDesc = '';
             currentMediaIndex = 0;
+        }
+    });
+
+    const prevArrow = document.querySelector('.modal-carousel .carousel-arrow.prev');
+    const nextArrow = document.querySelector('.modal-carousel .carousel-arrow.next');
+
+    if (prevArrow) {
+        prevArrow.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent modal from closing if arrows are inside clickable area
+            if (currentProjectMediaForModal.length > 0) {
+                let newIndex = (currentMediaIndexInModal - 1 + currentProjectMediaForModal.length) % currentProjectMediaForModal.length;
+                updateModalMedia(currentProjectMediaForModal, newIndex);
+            }
+        });
+    }
+
+    if (nextArrow) {
+        nextArrow.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (currentProjectMediaForModal.length > 0) {
+                let newIndex = (currentMediaIndexInModal + 1) % currentProjectMediaForModal.length;
+                updateModalMedia(currentProjectMediaForModal, newIndex);
+            }
+        });
+    }
+
+    // Keyboard navigation for modal carousel and escape to close
+    document.addEventListener('keydown', function(event) {
+        if (modal && modal.classList.contains('visible')) { // Check if modal is active
+            if (event.key === 'ArrowLeft') {
+                if (prevArrow) prevArrow.click(); // Trigger click on arrow
+            } else if (event.key === 'ArrowRight') {
+                if (nextArrow) nextArrow.click(); // Trigger click on arrow
+            } else if (event.key === 'Escape') {
+                const closeBtn = document.querySelector('.modal .close');
+                if (closeBtn) closeBtn.click(); // Trigger click on close button
+            }
+        }
+    });
+
+    // Ensure your close modal logic also resets video
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            const modalVideo = document.getElementById('modal-video');
+            if (modalVideo) {
+                modalVideo.pause();
+                const videoSource = modalVideo.querySelector('source');
+                if(videoSource) videoSource.src = "";
+            }
+            document.body.classList.remove('modal-open');
+        });
+    }
+
+    // Also add to window click close logic
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            const modalVideo = document.getElementById('modal-video');
+            if (modalVideo) {
+                modalVideo.pause();
+                const videoSource = modalVideo.querySelector('source');
+                if(videoSource) videoSource.src = "";
+            }
+            document.body.classList.remove('modal-open');
         }
     });
 
@@ -887,6 +1091,64 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+function initTestimonials() {
+    const carousel = document.querySelector('.testimonials-carousel');
+    const cards = document.querySelectorAll('.testimonial-card');
+    const prevBtn = document.querySelector('.prev-testimonial');
+    const nextBtn = document.querySelector('.next-testimonial');
+    let currentIndex = 0;
+
+    // Reset all cards position and visibility
+    function resetCards() {
+        cards.forEach((card, index) => {
+            card.style.transform = `translateX(${(index - currentIndex) * 100}%)`;
+            card.style.opacity = index === currentIndex ? '1' : '0';
+            card.style.visibility = index === currentIndex ? 'visible' : 'hidden';
+        });
+    }
+
+    function moveCards(direction) {
+        currentIndex = (currentIndex + direction + cards.length) % cards.length;
+        cards.forEach((card, index) => {
+            card.style.transition = 'all 0.5s ease';
+            card.style.transform = `translateX(${(index - currentIndex) * 100}%)`;
+            card.style.opacity = index === currentIndex ? '1' : '0';
+            card.style.visibility = index === currentIndex ? 'visible' : 'hidden';
+        });
+        updateDots();
+    }
+
+    function updateDots() {
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+        });
+    }
+
+    // Initialize dots
+    const dotsContainer = document.querySelector('.testimonial-dots');
+    cards.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+            currentIndex = index;
+            resetCards();
+            updateDots();
+        });
+        dotsContainer.appendChild(dot);
+    });
+
+    // Event listeners
+    prevBtn?.addEventListener('click', () => moveCards(-1));
+    nextBtn?.addEventListener('click', () => moveCards(1));
+
+    // Initial setup
+    resetCards();
+}
+
+document.addEventListener('DOMContentLoaded', initTestimonials);
 </script>
 </body>
 </html>
