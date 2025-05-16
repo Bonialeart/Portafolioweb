@@ -3503,284 +3503,156 @@ html {
   padding: 2rem;
   margin: 1em;
 }
-
-/* Tablets (768px - 1024px) */
-@media (max-width: 1024px) {
-  /* Navbar */
-  .navbar {
-    padding: 15px 30px;
-  }
-
-  .nav-menu {
-    display: none; /* Ocultar menú normal */
-    position: fixed;
-    top: 80px;
-    right: -100%;
-    width: 70%;
-    height: calc(100vh - 80px);
-    background: rgba(10, 15, 28, 0.95);
-    padding: 20px;
-    transition: right 0.3s ease;
-    z-index: 1000;
-  }
-
-  .nav-menu.active {
-    right: 0;
-    display: block;
-  }
-
-  .nav-menu ul {
-    flex-direction: column;
-  }
-
-  .nav-menu ul li {
-    margin: 15px 0;
-  }
-
-  /* Hero Section */
-  .hero-content h1 {
-    font-size: 3.5em;
-  }
-
-  .title-main {
-    font-size: 3em;
-  }
-
-  .title-sub {
-    font-size: 0.6em;
-    left: 75%;
-  }
-
-  .title-sub-image {
-    width: 200px;
-    left: 70%;
-  }
-
-  /* Project Grid */
-  .project-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    max-width: 700px;
-  }
-
-  /* About Section */
-  .about-container {
-    flex-direction: column;
-    gap: 30px;
-  }
-
-  .about-photo {
+/* Ajustes base para el escalado */
+html, body {
+    font-size: 16px;
     width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-
-  /* Skills Section */
-  .skills-container {
-    flex-direction: column;
-  }
-
-  /* Modal */
-  .modal-inner {
-    grid-template-columns: 1fr;
-  }
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
-/* Móviles (320px - 767px) */
-@media (max-width: 767px) {
-  /* General */
-  body {
-    font-size: 14px;
-  }
+/* Ajustes para tablets (768px - 1024px) */
+@media screen and (max-width: 1024px) {
+    html {
+        font-size: 14px;
+    }
 
-  /* Navbar */
-  .navbar {
-    padding: 10px 20px;
-  }
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
 
-  .logo img {
-    max-height: 40px;
-  }
+    .title-main {
+        font-size: 2.8em;
+    }
 
-  /* Hero Section */
-  .hero {
-    padding: 100px 20px 60px;
-  }
+    .projects h2,
+    .about h2,
+    .skills h2,
+    .contact h2 {
+        font-size: 3em;
+    }
 
-  .hero-content h1 {
-    font-size: 2.5em;
-  }
+    .project-card {
+        width: calc(50% - 20px);
+    }
+}
 
-  .title-main {
-    font-size: 2.2em;
-  }
+/* Ajustes para móviles (menos de 768px) */
+@media screen and (max-width: 767px) {
+    html {
+        font-size: 12px;
+    }
 
-  .title-sub {
-    font-size: 0.5em;
-    left: 70%;
-  }
+    .hero-content h1 {
+        font-size: 2em;
+    }
 
-  .title-sub-image {
-    width: 150px;
-    left: 65%;
-  }
+    .title-main {
+        font-size: 2.2em;
+    }
 
-  /* Project Grid */
-  .project-grid {
-    grid-template-columns: 1fr;
-    gap: 10px;
+    .projects h2,
+    .about h2,
+    .skills h2,
+    .contact h2 {
+        font-size: 2.5em;
+    }
+
+    .project-card {
+        width: 100%;
+    }
+
+    /* Ajustar padding general */
+    .section {
+        padding: 40px 15px;
+    }
+
+    /* Ajustar márgenes y espaciado */
+    .container {
+        padding: 0 15px;
+    }
+}
+
+/* Ajustes específicos para dispositivos muy pequeños */
+@media screen and (max-width: 320px) {
+    html {
+        font-size: 10px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8em;
+    }
+
+    .title-main {
+        font-size: 2em;
+    }
+}
+
+/* Prevenir desbordamiento horizontal */
+.container,
+.section,
+.hero,
+.about,
+.projects,
+.skills,
+.contact {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+/* Ajustes para imágenes responsivas */
+img {
     max-width: 100%;
-  }
+    height: auto;
+}
 
-  .project-filters {
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .filter-btn {
-    padding: 8px 12px;
-    font-size: 0.9em;
-  }
-
-  /* About Section */
-  .about {
-    padding: 60px 20px;
-  }
-
-  .about-content h2 {
-    font-size: 2em;
-  }
-
-  .about-details {
-    flex-direction: column;
+/* Ajustes para el grid de proyectos */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
-  }
+    padding: 0 15px;
+}
 
-  /* Skills Section */
-  .skills h2 {
-    font-size: 2em;
-  }
-
-  .software-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-  }
-
-  /* Contact Section */
-  .contact-form {
-    padding: 20px;
-  }
-
-  /* Modal */
-  .modal-content {
+/* Ajustes para el modal */
+.modal-content {
     width: 95%;
-    padding: 15px;
-  }
-
-  .modal-inner {
-    gap: 15px;
-  }
-
-  .bento-card {
-    padding: 10px;
-  }
-}
-
-/* Móviles pequeños (menos de 320px) */
-@media (max-width: 319px) {
-  /* General */
-  body {
-    font-size: 12px;
-  }
-
-  /* Navbar */
-  .navbar {
-    padding: 8px 15px;
-  }
-
-  .logo img {
-    max-height: 35px;
-  }
-
-  /* Hero Section */
-  .hero-content h1 {
-    font-size: 2em;
-  }
-
-  .title-main {
-    font-size: 1.8em;
-  }
-
-  .title-sub {
-    font-size: 0.4em;
-    left: 65%;
-  }
-
-  .title-sub-image {
-    width: 120px;
-    left: 60%;
-  }
-
-  /* Project Filters */
-  .filter-btn {
-    padding: 6px 10px;
-    font-size: 0.8em;
-  }
-
-  /* About Section */
-  .about-content h2 {
-    font-size: 1.8em;
-  }
-
-  /* Skills Section */
-  .software-grid {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-}
-
-/* Ajustes de orientación para dispositivos móviles */
-@media (max-height: 600px) and (orientation: landscape) {
-  .hero {
-    min-height: 450px;
-  }
-
-  .hero-content {
-    padding: 20px 0;
-  }
-
-  .nav-menu {
+    max-width: 1200px;
+    margin: 20px auto;
+    height: auto;
     max-height: 90vh;
-    overflow-y: auto;
-  }
 }
-
-/* Ajustes para dispositivos de alta resolución */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  body {
-    background-size: auto, 100px 100px;
-  }
-
-  .logo img,
-  .about-img,
-  .project-card img {
-    image-rendering: -webkit-optimize-contrast;
-  }
-}
-
-/* Ajustes de accesibilidad para pantallas táctiles */
+    /* Mejoras para interacción táctil */
 @media (hover: none) {
-  .filter-btn:hover,
-  .project-card:hover .overlay,
-  .nav-menu ul li a:hover {
-    opacity: 1;
-    transform: none;
-  }
+    /* Aumentar área táctil para botones y enlaces */
+    button,
+    .nav-menu ul li a,
+    .filter-btn {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 12px 20px;
+    }
 
-  /* Aumentar área táctil */
-  .nav-menu ul li a,
-  .filter-btn,
-  .contact-form button {
-    padding: 12px 20px;
-  }
+    /* Eliminar efectos hover en dispositivos táctiles */
+    .project-card:hover .overlay,
+    .software-icon:hover,
+    .nav-menu ul li a:hover {
+        transform: none;
+    }
+
+    /* Hacer los elementos táctiles más evidentes */
+    .filter-btn,
+    .contact-form button,
+    .nav-menu ul li a {
+        -webkit-tap-highlight-color: rgba(74, 144, 226, 0.2);
+    }
+}
+
+/* Ajustes de rendimiento */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
