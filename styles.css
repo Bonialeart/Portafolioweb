@@ -2824,12 +2824,30 @@ body.light-theme .socialSvg path {
     position: relative;
     z-index: 2;
     font-family: 'Londrina Sketch', cursive;
-    font-size: 6em;
+    font-size: clamp(2.5em, 5vw, 6em); /* Esto hace que el tamaño sea responsive */
     margin: 0;
     color: var(--color-primario);
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+/* Ajustes específicos para diferentes tamaños de pantalla */
+@media screen and (max-width: 1024px) {
+    .section-header h2 {
+        font-size: clamp(2.2em, 4vw, 5em);
+    }
 }
 
+@media screen and (max-width: 768px) {
+    .section-header h2 {
+        font-size: clamp(2em, 3.5vw, 4em);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .section-header h2 {
+        font-size: clamp(1.8em, 3vw, 3.5em);
+    }
+}
 .scribble {
     position: absolute;
     top: 50%;
