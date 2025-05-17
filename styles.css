@@ -9,11 +9,11 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
+    scrollbar-width: thin;
+    scrollbar-color: #4a90e2 #1a2238;
 }
 
 body {
-    background: linear-gradient(135deg, #1a2238, #0a0f1c), url('noise-texture.png') repeat;
-    background-blend-mode: overlay;
     background-size: auto, 200px 200px;
     color: #e2e8f0;
     line-height: 1.6;
@@ -659,13 +659,6 @@ body {
     transform: translateY(0);
 }
 
-/* Ajustes responsivos */
-@media (max-width: 1024px) {
-    .project-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
 @media (max-width: 768px) {
     .projects {
         padding: 60px 20px;
@@ -686,13 +679,7 @@ body {
         font-size: 0.9em;
         border-radius: 15px;
     }
-
-    .project-grid {
-        grid-template-columns: 1fr;
-        gap: 10px;
-        padding: 0 10px;
-    }
-
+    
     .project-card .overlay h3 {
         font-size: 1.1em;
     }
@@ -1602,11 +1589,45 @@ body {
         padding: 60px 40px 100px;
     }
 
-    .project-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
+    /* ... otros estilos ... */
+
+    .projects { /* El contenedor padre. El padding aquí define los márgenes de la sección. */
+        padding: 100px 10px; /* Ajusta este padding según el espacio que quieras a los lados de TODA la galería */
     }
 
+     .project-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        /* --- CORRECCIONES --- */
+        gap: 0;           /* <--- CAMBIO CRÍTICO: Sin espacio entre las celdas del grid. */
+        width: 100%;      /* <--- CAMBIO CRÍTICO: La cuadrícula ocupa el 100% del ancho de su contenedor (.projects). */
+        padding: 0;       /* <--- CAMBIO CRÍTICO: Sin padding interno en la propia cuadrícula. */
+        /* --- FIN CORRECCIONES --- */
+        margin: 0 auto;   /* Esto centrará la cuadrícula si .projects es más ancho, pero con width:100% no hace mucho. */
+        justify-items: center  ; /* Correcto: hace que los items llenen la celda. */
+    }
+
+    .project-card {
+        aspect-ratio: 1/1;
+        width: 300%; /* Correcto: la tarjeta llena el 100% de su celda. */
+        height: auto;
+        margin: 0;
+        padding: 0;
+        border-radius: 0; /* Asegúrate de que no haya bordes redondeados que simulen espacios. */
+        box-shadow: none;
+        overflow: hidden; /* Para asegurar que la imagen no se desborde si hay algún problema con object-fit */
+    }
+
+    .project-card .carousel-img { /* La imagen dentro de la tarjeta */
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Cubre el espacio sin deformar, puede recortar. */
+        display: block;
+        border-radius: 0; /* Sin bordes redondeados en la imagen. */
+    }
+
+    /* ... otros estilos ... */
+}
     .about-container {
         flex-direction: column;
         gap: 25px;
@@ -1642,6 +1663,7 @@ body {
         padding-top: 15px;
         text-align: center;
     }
+
 
 @media (max-width: 768px) {
     .loader img.transformed {
@@ -1822,7 +1844,7 @@ body {
     }
 
     .project-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, 1fr);
         max-width: 100%;
         gap: 10px;
         padding: 0 10px;
@@ -2174,11 +2196,6 @@ body {
     .projects h2, .about-content h2, .skills h2, .contact h2 {
         font-size: 1.5em;
         margin-bottom: 10px;
-    }
-
-    .project-grid {
-        gap: 5px;
-        padding: 0 5px;
     }
 
     .project-card {
@@ -3623,14 +3640,6 @@ html, body {
 img {
     max-width: 100%;
     height: auto;
-}
-
-/* Ajustes para el grid de proyectos */
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    padding: 0 15px;
 }
 
 /* Ajustes para el modal */
